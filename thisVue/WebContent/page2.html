@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>hello_world</title>
+<meta name="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<style type="text/css">
+	div{
+	
+	}
+</style>
+</head>
+<body>
+	<!--v-model:双向绑定
+		指令用来在 input、select、text、checkbox、radio 等表单控件元素上创建双向数据绑定，
+		根据表单上的值，自动更新绑定的元素的值。（注意：当使用双向绑定的时候，标签默认值失效）  -->
+		
+	<div id="div1">
+		标题：<h1>{{bt}}</h1>
+		修改标题：<input v-model="bt">
+	</div>
+	<script type="text/javascript">
+		var ve = new Vue({
+			el:'div1',
+			date:{
+				bt:"",
+			},
+			mathods:{
+				details:function(){
+					
+				}
+			}
+		});
+	</script>
+</body>
+</html>

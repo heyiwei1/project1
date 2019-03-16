@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>购物车</title>
+<meta name="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+
+	<!-- 
+		Bootstrap不再兼容老版本的IE浏览器。
+		为了让IE浏览器运行最新的渲染模式，
+		建议将此 <meta>标签加入到页面中 。
+	-->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- 
+		viewport:浏览器窗口设置声明
+		width=device-width:内容宽度和设备宽度一致
+		initial-scale=1:初始缩放100%
+		maximum-scale=1:最大缩放100%
+		user-scalable=no:禁止用户缩放 
+	-->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- 将网页放入移动设备中，能够有更好的显示效果 -->
+			
+	<meta name="content-type" content="text/html; charset=UTF-8">
+
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+	<script type="text/javascript" src="js/vue.js"></script>
+	<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+	<style type="text/css">
+	.mydiv1{
+
+		
+	}
+	.mydiv2{
+		border: 1px red solid;
+		
+	}
+</style>
+</head>
+<body>
+	<div id="div1">
+		<h2>产品列表：</h2>		
+			<table class="table table-striped table-bordered table-hover" >
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>单价</th>
+						<th>操作</th>
+					</tr>
+				</thead>				
+				<tbody>
+					<tr v-for="p in products">
+						<td>{{ p.name }}</td>
+						<td>{{ p.price }}</td>
+						<td>
+							<button @click="addProduct(p)">购买</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<h2>购物车：</h2>	
+	<table  class="table table-striped table-bordered table-hover"   v-bind:class="{mydiv1:isActive ,mydiv2:hasError}">
+		<tr >
+			<td>名称</td>
+			<td>单价</td>
+			<td>数量</td>
+			<td>总价</td>
+			<td>操作</td>
+		</tr>
+		<tr v-for="(good,index) in arr1">
+			<td>{{good.name}}</td>
+			<td>{{good.price}}</td>
+			<td>
+				<button @click="changeAge(good)" ><</button>
+					<input id="div3" v-model="good.num" style="width: 30px" />
+				<button @click="changeAge1(good)" >></button>
+			</td>
+			<!-- <td>{{comAge}}</td> -->
+			<td>{{good.price*good.num}}</td>
+			<td><button @click="deleteProduct(index)">移除</button></td>
+		
+		</tr>
+		<tfoot>
+			<tr>
+				<td>总价：</td>
+				<td colspan="4">{{totalPrices}}</td>
+			</tr>
+		</tfoot>
+		
+	</table>
+	</div>
+	<script type="text/javascript">
+		var ve = new Vue({
+			el:'#div1',
+			data:{
+				isActive:true,
+				totalprices:0,
+				totals:0,
+				products:[
+					{name:'CPU',price:100, num:1},
+					{name:'主板',price:800, num:1},
+					{name:'内存',price:500, num:1}
+				],
+				arr1:[]
+			},
+			methods:{
+				changeAge:function(obj){
+					if(obj.num>0){
+						return obj.num--;
+					}
+				},
+				changeAge1:function(obj){
+					return obj.num++;
+				},
+				addProduct:function(obj){
+					obj.num=1;
+					if($.inArray(obj, this.arr1) < 0)this.arr1.push(obj);
+				},
+				deleteProduct:function(i){
+					this.arr1.splice(i,1);
+				}
+			},
+			computed:{
+				totalPrices:function(){
+					var total = 0;
+	                for(var i in this.arr1){
+	                     total += this.arr1[i].num * this.arr1[i].price;
+	                }
+	                  return total;
+				}
+				
+			}
+		});
+	</script>
+</body>
+</html>

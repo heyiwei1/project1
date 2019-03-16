@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>hello_world</title>
+<meta name="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<style type="text/css">
+	div{
+		border:1px red solid;
+		width: 600px;
+		height: 400px;
+	}
+	.changeBack{
+		background-color: red;
+	}
+	.yuanjiao{
+		border-radius: 10%;
+	}
+</style>
+</head>
+<body>
+	<!-- v-on:用于绑定标签元素的DOM事件
+		用于绑定事件DOM事件的指令，其中vue实例中的methods是方法对象。需要注意的是绑定的dom事件中不能再使用js代码，只能调用vue实例中的属性。
+		下列代码演示了按钮的单击事件（this指向了当前vue对象）：(v-on:click可以缩写为@click)  -->
+		
+	<div id="dis1" :class="{changeBack: backColor ,yuanjiao : yuanjiao}">
+		<button @click="changeFunc()">按钮</button>
+	</div>
+	<script type="text/javascript">
+		var ve = new Vue({
+			el:'#dis1',
+			data:{
+				backColor:false,
+				yuanjiao:false,
+			},
+			methods:{
+				changeFunc:function(){
+					this.backColor=true;
+					this.yuanjiao = true;
+				}
+			}
+		});
+	</script>
+</body>
+</html>

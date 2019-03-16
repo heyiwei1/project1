@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>hello_world</title>
+<meta name="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+
+<style type="text/css">
+	#div1{
+		border: 1px blue solid;
+		width: 600px;
+		height: 400px;
+	}
+	
+	.changeBack{
+		background-color: #abcdef;
+	}
+	.yuanjiao{
+		border-radius: 10%;
+	}
+	
+</style>
+</head>
+<body>
+	<div id = "div1">
+		<select>
+			<option v-for="i in 10">重庆_{{i}}</option>
+		</select>
+		<select>
+			<option v-for="i in arr1">{{i}}</option>
+		</select>
+		<!-- 
+			在for中给出一个匿名函数分别获取,value,key,index
+		-->
+		<h1 v-for="(n,a,s) in stu">{{n}},{{a}},{{s}}</h1>
+	</div>
+ 	<script type="text/javascript">
+		var ve = new Vue({
+			el:'#div1',
+			data:{
+				dt1:"h1ID",
+				arr1:['上海','重庆','成都'],
+				stu:{
+					name:'何义伟',
+					age:'22',
+					sex:'男',
+				}
+			}
+		
+		});
+	</script>
+</body>
+</html>

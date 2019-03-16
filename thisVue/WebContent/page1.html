@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>hello_world</title>
+<meta name="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<style type="text/css">
+	div{
+	
+	}
+
+</style>
+
+</head>
+<body>
+
+	<div id="div1" >
+		{{5+5}}
+		<h1>site:{{site}}</h1>
+		
+		<h1>url:{{url}}</h1>
+		<h1>{{details()}}</h1>
+		<!--vue判断  -->
+		<h1 v-if="num > num1" >vue判断</h1>
+		<h1 v-if="num < num1" >真判断</h1>
+		<h1 v-else >判断</h1>
+		<!-- 根据条件（true|false）展示元素，表达式为一个boolean
+		相当于v-if -->
+		<h1 v-show="true">wojiuxuwyuan </h1>
+	</div>
+	<div id="div2">
+		{{5+5}}
+		<h1>site:{{site}}</h1>
+		<h1>url:{{url}}</h1>
+		<h1>{{details()}}</h1>
+	</div>
+	<script type="text/javascript" >
+		var ve = new Vue({
+			el:'#div1',
+			data:{
+				site:"菜鸟教程",
+				url:"www.baidu.com",
+				alexa:"10000",
+				num:5,
+				num1:6,
+			},
+			
+			methods:{
+				details:function(){
+					return this.site +"学的不仅是技术"
+				}
+			}
+		});
+		
+		var ve = new Vue({
+			el:'#div2',
+			data:{
+				site:"菜鸟教程",
+				url:"www.baidu.com",
+				alexa:"10000",
+			},
+			methods:{
+				details:function(){
+					return this.site +"学的不仅是技术"
+				}
+			}
+		});
+		
+	</script>
+	
+</body>
+</html>

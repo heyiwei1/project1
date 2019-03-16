@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>hello_world</title>
+<meta name="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<style type="text/css">
+	#d1{
+		border: 1px blue solid;
+		width: 800px;
+		height: 600px;
+	
+	}
+	a{
+		text-decoration:none;
+	}
+</style>
+
+</head>
+
+<body>
+	<div id="d1">
+		<h2>产品列表：</h2>		
+		<div>
+			<table border="1" width="100%">
+				<thead>
+					<tr>
+						<th>id</th>
+						<th>name</th>
+						<th>price</th>
+						<th>operation</th>
+					</tr>
+				</thead>				
+				<tbody>
+					<tr v-for="p in products">
+						<td>{{ p.id }}</td>
+						<td>{{ p.name }}</td>
+						<td>{{ p.price }}</td>
+						<td>
+							<button @click="addProduct(p)">购买</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<br><br>
+		<h2>购物车：</h2>
+		<div>
+			<table border="1" width="100%">
+				<thead>
+					<thead>
+						<tr>
+							<th>id</th>
+							<th>name</th>
+							<th>price</th>
+							<th>operation</th>
+						</tr>
+					</thead>
+				</thead>
+				<tbody>
+					<tr v-for="c in cart">
+						<td>{{c.id}}</td>					
+						<td>{{c.name}}</td>					
+						<td>{{c.price}}</td>
+						<td>
+							<a href="javascript:;">&lt;&lt;</a>
+							<input>
+							<a href="javascript:;">&gt;&gt;</a>
+						</td>				
+					</tr>			
+				</tbody>
+				<tfoot>
+					<tr>
+						<td>总价：</td>
+						<td colspan="3">0</td>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		var ve = new Vue({
+			el:"#d1",
+			data:{
+				products:[
+					{id:1,name:'CPU',price:1000},
+					{id:2,name:'主板',price:800},
+					{id:3,name:'内存',price:500}
+				],
+				cart:[]
+			},
+			methods:{
+				addProduct:function(obj){
+					if($.inArray(obj, this.cart) < 0)this.cart.push(obj);
+				}
+			}
+		});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>hello_world</title>
+<meta name="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<style type="text/css">
+	.active {
+	width: 100px;
+	height: 100px;
+	background: green;
+}
+	.text-danger {
+	background: red;
+}
+</style>
+</head>
+<body>
+	<!--后面的把前面的覆盖了  -->
+	<div id="div1">
+		<div v-bind:class="{active:isActive , 'text-danger': hasError}"></div>
+	</div>
+	<script type="text/javascript">
+		var ve = new Vue({
+			el:'#div1',
+			data:{
+				isActive:true,
+				hasError: true,
+			}
+		});
+	</script>
+</body>
+</html>
