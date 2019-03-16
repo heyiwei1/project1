@@ -72,6 +72,8 @@ public class indexAction extends Controller{
 	}
 	public static void main(String[] args) {
 		System.out.println("fdsgsdr");
+		System.out.println("dsfg");
+		System.out.println("啦啦啦德玛西亚新的分支");
 	}
 }
 
