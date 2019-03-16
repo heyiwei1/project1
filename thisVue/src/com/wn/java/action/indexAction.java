@@ -70,5 +70,8 @@ public class indexAction extends Controller{
 		System.out.println(para);
 		render("page1.jsp");
 	}
+	public static void main(String[] args) {
+		
+	}
 }
 
