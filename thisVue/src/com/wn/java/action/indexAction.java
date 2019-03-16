@@ -71,7 +71,7 @@ public class indexAction extends Controller{
 		render("page1.jsp");
 	}
 	public static void main(String[] args) {
-		
+		System.out.println("fdsgsdr");
 	}
 }
 
